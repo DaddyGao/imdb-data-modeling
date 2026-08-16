@@ -6,7 +6,7 @@ library(corrplot)
 # -------------------------------------------------------------
 # 1. LOAD DATA
 # -------------------------------------------------------------
-df <- read.csv("imdb_top_1000.csv", stringsAsFactors = FALSE)
+df <- read.csv("/Users/sylvain/Sofia/MSCS3807 Data Modeling in Python and R/imdb-data-modeling/imdb_top_1000.csv", stringsAsFactors = FALSE)
 
 cat("Initial Dimensions:", dim(df), "\n")
 
@@ -33,12 +33,12 @@ df_clean <- df %>%
   ) %>%
   # Log-transforms for skewed predictors
   mutate(
-    log_No_of_votes = log1p(No_of_votes),
+    log_No_of_Votes = log1p(No_of_Votes),
     log_Gross = log1p(Gross_clean)
   ) %>%
   select(
-    Released_Year, Runtime_min, Meta_score, No_of_votes,
-    Gross_clean, log_No_of_votes, log_Gross, Primary_Genre,
+    Released_Year, Runtime_min, Meta_score, No_of_Votes,
+    Gross_clean, log_No_of_Votes, log_Gross, Primary_Genre,
     Certificate, Director, Star1, IMDB_Rating
   )
 
@@ -63,7 +63,7 @@ ggsave("r_eda_target_dist.png", plot = p1, width = 8, height = 5, dpi = 300)
 
 # Visual 2: Correlation Matrix
 numeric_cols <- df_clean %>%
-  select(IMDB_Rating, Meta_score, Runtime_min, log_No_of_votes, log_Gross, Released_Year)
+  select(IMDB_Rating, Meta_score, Runtime_min, log_No_of_Votes, log_Gross, Released_Year)
 
 corr_matrix <- cor(numeric_cols, use = "complete.obs")
 
