@@ -8,7 +8,7 @@ library(e1071)
 # -------------------------------------------------------------
 # 1. LOAD & CLEAN DATA
 # -------------------------------------------------------------
-raw_df <- read.csv("imdb_top_1000.csv", stringsAsFactors = FALSE)
+raw_df <- read.csv("/Users/sylvain/Sofia/MSCS3807 Data Modeling in Python and R/imdb-data-modeling/imdb_top_1000.csv", stringsAsFactors = FALSE)
 
 df_clean <- raw_df %>%
   distinct(Series_Title, Released_Year, .keep_all = TRUE) %>%
