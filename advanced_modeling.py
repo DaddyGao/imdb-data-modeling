@@ -118,7 +118,7 @@ feat_imp_df = pd.DataFrame({"Feature": feature_names, "Importance": importances}
 feat_imp_df = feat_imp_df.sort_values(by="Importance", ascending=False).head(10)
 
 plt.figure(figsize=(9, 5))
-sns.barplot(data=feat_imp_df, x="Importance", y="Feature", palette="viridis")
+sns.barplot(data=feat_imp_df, x="Importance", y="Feature", hue="Feature", palette="viridis", legend=False)
 plt.title("Top 10 Feature Importances (Random Forest)", fontsize=14)
 plt.xlabel("Gini / Variance Reduction Importance")
 plt.ylabel("Predictor Variable")
