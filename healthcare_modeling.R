@@ -110,7 +110,7 @@ rf_imp <- varImp(rf_fit)$importance
 rf_imp$Feature <- rownames(rf_imp)
 
 p_imp <- ggplot(rf_imp, aes(x = reorder(Feature, Overall), y = Overall)) +
-  geom_col(fill = "teal") +
+  geom_col(fill = "#008080") +
   coord_flip() +
   theme_minimal() +
   labs(
